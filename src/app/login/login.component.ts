@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  username= 'user'
+  username= ''
   password= ''
   errorMessage = 'nieprwidlowy login lub haslo'
   invalidLogin = false;

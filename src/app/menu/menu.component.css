@@ -1,0 +1,14 @@
+.navbar-dark{
+
+    /* background-color: rgb(16, 82, 16) !important; */
+    background-image: linear-gradient(rgb(79, 104, 32), rgb(184, 184, 58));
+    
+    
+}
+
+.navbar ul li >a{
+    color: aliceblue;
+    font-size: 25px
+}
+ 
+

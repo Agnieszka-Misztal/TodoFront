@@ -1,0 +1,21 @@
+<h1>MOJE ZADANIA</h1>
+
+<div class="container">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Opis</th>
+      <th>Deadline</th>
+      <th>Zrobione</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- takie forEach inaczej -->
+    <tr *ngFor="let todo of todos">
+      <td>{{todo.description}}</td>
+      <td>{{todo.targetDate | date:"dd/MM/yyyy"}}</td>
+      <td>{{todo.done}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
