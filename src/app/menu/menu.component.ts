@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HAuthenticationService } from '../service/h-authentication.service';
 
 @Component({
   selector: 'app-menu',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
+ 
 
-  constructor() { }
+  constructor(private hAuthenticationService : HAuthenticationService ) { }
 
   ngOnInit() {
+   
   }
 
 }

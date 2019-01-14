@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HAuthenticationService } from '../service/h-authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -14,13 +15,13 @@ export class LoginComponent implements OnInit {
   invalidLogin = false;
 
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private hAuthenticationService: HAuthenticationService ) { }
 
   ngOnInit() {
   }
 
   login(){
-    if(this.username==='user' && this.password === 'password'){
+    if(this.hAuthenticationService.authenticate(this.username, this.password)){
       this.invalidLogin=false
       //po zalogowaniu przekierowanie na url home, username przkazany jako parametr
       this.router.navigate(['home', this.username])
