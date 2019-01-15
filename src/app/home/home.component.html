@@ -9,3 +9,12 @@
 <div class="cotainer" >
 <h2>Zarządzaj swoimi zadaniami <a routerLink="/todos">Lista zadań</a></h2>
 </div>
+<div class="cotainer" >
+    click hera to get wlcome massege
+    <button (click)="getWelcomeMessageWithParam()" class="btn btn-success">Get Message</button>
+    </div>
+    <div class="container" *ngIf="welcomeMessageFromService">
+    <h2>twoaja wiadomosc</h2>
+    {{welcomeMessageFromService}}
+  </div>
+  
