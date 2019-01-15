@@ -5,7 +5,7 @@ export class Todo{
   constructor(
     public id: number,
     public description: string,
-    public done: boolean,
+    public completed: boolean,
     public targetDate: Date
 
   ){
@@ -22,6 +22,8 @@ export class ListTodoComponent implements OnInit {
 
   todos: Todo[]
 
+  message: string
+
   
 
 
@@ -35,6 +37,27 @@ export class ListTodoComponent implements OnInit {
       }
       
     )
+  }
+
+  deleteTodo(id){
+    this.todoService.deleteTodo('user', id).subscribe(
+      response => {
+        console.log(response);
+        this.message = 'Usunięto zadanie'
+        this.refresh();
+
+      }
+    )
+  }
+
+  refresh(){
+    this.todoService.getAllTodos('user').subscribe(
+      response => {
+        this.todos = response;
+      }
+      
+    )
+
   }
 
 }

@@ -1,12 +1,15 @@
 <h1>MOJE ZADANIA</h1>
 
+<div class="alert alert-info" *ngIf='message'>{{message}} </div>
+
 <div class="container">
 <table class="table">
   <thead>
     <tr>
       <th>Opis</th>
       <th>Deadline</th>
-      <th>Zrobione</th>
+      <th>Zrobione?</th>
+      <th>Akcje</th>
     </tr>
   </thead>
   <tbody>
@@ -14,7 +17,8 @@
     <tr *ngFor="let todo of todos">
       <td>{{todo.description}}</td>
       <td>{{todo.targetDate | date:"dd/MM/yyyy"}}</td>
-      <td>{{todo.done}}</td>
+      <td>{{todo.completed}}</td>
+      <td><button (click)="deleteTodo(todo.id)" class="btn btn-warning">Usuń</button></td>
     </tr>
   </tbody>
 </table>
