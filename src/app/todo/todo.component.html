@@ -1,3 +1,7 @@
+<html lang="pl-PL"></html>
+<head>
+<meta charset="UTF-8">
+</head>
 <br>
 
 <div class="container">
@@ -5,11 +9,13 @@
   <legend class="w-auto"><h1>TODO</h1></legend>
   <fieldset class="form-group">
     <label><h4>Wprowadź opis zadania</h4></label>
-  <input type="text" class="form-control" name="description" required="required" placeholder="opis">
+  <input type="text" [(ngModel)]="todo.description" class="form-control" name="description" required="required" placeholder="opis">
 </fieldset>
 <fieldset class="form-group">
   <label><h4>Wprowadź datę</h4></label>
-  <input type="date" class="form-control" name="targetDate" required="required" placeholder="data">
+  <input type="date" [ngModel]="todo.targetDate|date:'yyyy-MM-dd'" 
+  (ngModelChange)="todo.targetDate = $event"
+  class="form-control" name="targetDate" required="required" placeholder="data">
 </fieldset>
 
 <div class="col text-center">

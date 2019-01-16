@@ -17,4 +17,16 @@ export class TodoDataService {
     return this.http.delete(`http://localhost:8080/users/${username}/todos/${id}`)
 
   }
+
+  getTodo(username, id){
+    return this.http.get<Todo>(`http://localhost:8080/users/${username}/todos/${id}`)
+
+  }
+
+  putTodo(username, id, todo){
+    return this.http.put(`http://localhost:8080/users/${username}/todos/${id}`, todo)
+
+  }
+
+
 }
