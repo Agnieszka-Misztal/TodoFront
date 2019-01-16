@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoDataService } from '../service/data/todo-data.service';
+import { Router } from '@angular/router';
 
 export class Todo{
   constructor(
@@ -27,7 +28,7 @@ export class ListTodoComponent implements OnInit {
   
 
 
-  constructor(private todoService:TodoDataService) { }
+  constructor(private todoService:TodoDataService, private router:Router) { }
 
   ngOnInit() {
     this.todoService.getAllTodos('user').subscribe(
@@ -48,6 +49,12 @@ export class ListTodoComponent implements OnInit {
 
       }
     )
+  }
+
+  updateTodo(id){
+    console.log(`update ${id}`);
+    this.router.navigate(['todos', id])
+
   }
 
   refresh(){

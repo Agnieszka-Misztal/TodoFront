@@ -9,7 +9,8 @@
       <th>Opis</th>
       <th>Deadline</th>
       <th>Zrobione?</th>
-      <th>Akcje</th>
+      <th>Zmień</th>
+      <th>Usuń</th>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +19,7 @@
       <td>{{todo.description}}</td>
       <td>{{todo.targetDate | date:"dd/MM/yyyy"}}</td>
       <td>{{todo.completed}}</td>
+      <td><button (click)="updateTodo(todo.id)" class="btn btn-success">Zmień</button></td>
       <td><button (click)="deleteTodo(todo.id)" class="btn btn-warning">Usuń</button></td>
     </tr>
   </tbody>
