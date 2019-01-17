@@ -7,6 +7,8 @@
 <div class="container">
 <fieldset class="border p-5 border-dark rounded " style="background-color: rgb(170, 206, 207); ">
   <legend class="w-auto"><h1>TODO</h1></legend>
+  <!-- pola required musza byc wypelnione -->
+  <form (ngSubmit)="!todoForm.invalid && saveTodo()" #todoForm="ngForm"> 
   <fieldset class="form-group">
     <label><h4>Wprowadź opis zadania</h4></label>
   <input type="text" [(ngModel)]="todo.description" class="form-control" name="description" required="required" placeholder="opis">
@@ -19,9 +21,12 @@
 </fieldset>
 
 <div class="col text-center">
-<button class="btn btn-success" (click)="saveTodo()">Zapisz</button>
+<button type="submit" class="btn btn-success" >Zapisz</button>
 </div>
+</form>
 </fieldset>
   </div>
+
+ 
 
 
