@@ -19,6 +19,10 @@
   (ngModelChange)="todo.targetDate = $event"
   class="form-control" name="targetDate" required="required" placeholder="data">
 </fieldset>
+<fieldset class="form-group">
+  <label><h4>Zrobione? (true/false)</h4></label>
+<input type="text" [(ngModel)]="todo.completed" class="form-control" name="completed" required="required" placeholder="false">
+</fieldset>
 
 <div class="col text-center">
 <button type="submit" class="btn btn-success" >Zapisz</button>

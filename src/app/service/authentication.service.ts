@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import {map} from 'rxjs/operators'
+import { API_URL } from '../app.constans';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class AuthenticationService {
     let headers = new HttpHeaders({
       Authorization: basicHeader
     })
-    return this.http.get<AuthenticationBasic>(`http://localhost:8080/auth`, {headers})
+    return this.http.get<AuthenticationBasic>(`${API_URL}/auth`, {headers})
     //jezeli response bedzie ok to mapujemy go, taki stream i map-lambda inaczej ;)
     .pipe(
       map( 

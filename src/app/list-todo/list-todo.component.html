@@ -18,7 +18,8 @@
     <tr *ngFor="let todo of todos">
       <td>{{todo.description}}</td>
       <td>{{todo.targetDate | date:"dd/MM/yyyy"}}</td>
-      <td>{{todo.completed}}</td>
+      <td *ngIf="!todo.completed">Jeszcze nie</td>
+      <td *ngIf="todo.completed"><mark>Zrobione</mark></td>
       <td><button (click)="updateTodo(todo.id)" class="btn btn-success">Zmień</button></td>
       <td><button (click)="deleteTodo(todo.id)" class="btn btn-warning">Usuń</button></td>
     </tr>
