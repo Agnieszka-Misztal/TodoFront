@@ -18,17 +18,9 @@ export class WelcomeDataService {
     
   executeHelloWorldParam(name){
 
-    let basicHeader = this.createHeader()
-    let headers = new HttpHeaders({
-      Authorization: basicHeader
-    })
-    return this.http.get<HelloWorldBean>(`http://localhost:8080/hello-world-bean/param/${name}`, {headers})
+   
+    return this.http.get<HelloWorldBean>(`http://localhost:8080/hello-world-bean/param/${name}`)
   }
 
-  createHeader(){
-    let username= 'user'
-    let password = 'password'
-    let basicHeader = 'Basic ' + window.btoa(username + ':' + password)
-    return basicHeader;
-  }
+
 }

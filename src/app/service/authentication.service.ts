@@ -9,16 +9,7 @@ export class AuthenticationService {
 
   constructor(private http: HttpClient) { }
 
-  authenticate(username, password){
-    console.log('przed' +this.isUserLoggedIn())
-    if(username==='user' && password === 'password'){
-      sessionStorage.setItem('authenticatedUser', username)
-      console.log('po' + this.isUserLoggedIn())
-      return true;
-    }
-    return false;
-    
-  }
+
 
   executeAuthenticationService(username,password){
 
@@ -35,6 +26,7 @@ export class AuthenticationService {
       map( 
         response => {
         sessionStorage.setItem('authenticatedUser', username);
+        sessionStorage.setItem('token', basicHeader);
         return response;
       }
       )
@@ -43,6 +35,17 @@ export class AuthenticationService {
   }
 
 
+  getAuthenticatedUser(){
+    return sessionStorage.getItem('authenticatedUser')
+
+  }
+
+  getAuthenticatedToken(){
+    if(this.getAuthenticatedUser()){
+    return sessionStorage.getItem('token')
+    }
+
+  }
 
   isUserLoggedIn(){
     let user = sessionStorage.getItem('authenticatedUser')
@@ -52,6 +55,7 @@ export class AuthenticationService {
 
   logout(){
     sessionStorage.removeItem('authenticatedUser')
+    sessionStorage.removeItem('token')
   }
 
 
