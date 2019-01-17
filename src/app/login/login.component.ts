@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HAuthenticationService } from '../service/h-authentication.service';
+import { AuthenticationService } from '../service/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit {
   invalidLogin = false;
 
 
-  constructor(private router: Router, private hAuthenticationService: HAuthenticationService ) { }
+  constructor(private router: Router, private hAuthenticationService: HAuthenticationService,private authenticationService : AuthenticationService ) { }
 
   ngOnInit() {
   }
@@ -29,5 +30,21 @@ export class LoginComponent implements OnInit {
       this.invalidLogin=true
     }
   }
+
+  authLogin(){
+    this.authenticationService.executeAuthenticationService(this.username, this.password).subscribe(
+      response => {
+        console.log(response)
+        this.router.navigate(['home', this.username])
+        this.invalidLogin=false
+      },
+      error => {
+        console.log(error)
+        this.invalidLogin=true
+      }
+    )
+   
+    }
+  
 
 }
